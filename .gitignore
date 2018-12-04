@@ -38,3 +38,6 @@ nbproject/*
 .vscode
 # Sass preprocessor
 .sass-cache/
+
+# reference files
+reference/*

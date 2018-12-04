@@ -9,7 +9,7 @@ class Initial extends AbstractMigration
     public function up()
     {
         $this->table('users')
-            ->addColumn('user_name', 'text', [
+            ->addColumn('username', 'text', [
                 'comment' => 'ユーザー名',
                 'default' => null,
                 'limit' => null,

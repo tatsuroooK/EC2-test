@@ -21,8 +21,18 @@ class ArticlesController extends AppController
      */
     public function index()
     {
-        $articles = $this->paginate($this->Articles);
+        $articles = $this->Articles->find('all')
+            ->contain(['Users'])
+            ->all();
+        $this->set(compact('articles'));
+    }
 
+    public function myArticles()
+    {
+        $articles = $this->Articles->find('all')
+            ->contain(['Users'])
+            ->where(['Articles.user_id' => User::$id])
+            ->all();
         $this->set(compact('articles'));
     }
 

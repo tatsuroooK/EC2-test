@@ -4,20 +4,8 @@
  * @var \App\Model\Entity\Article $article
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Article'), ['action' => 'edit', $article->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Article'), ['action' => 'delete', $article->id], ['confirm' => __('Are you sure you want to delete # {0}?', $article->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Articles'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Article'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Comments'), ['controller' => 'Comments', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Comment'), ['controller' => 'Comments', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Thumbups'), ['controller' => 'Thumbups', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Thumbup'), ['controller' => 'Thumbups', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="articles view large-9 medium-8 columns content">
+
+<div class="articles view columns content">
     <h3><?= h($article->title) ?></h3>
     <table class="vertical-table">
         <tr>

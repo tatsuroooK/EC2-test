@@ -3,7 +3,7 @@
     <fieldset>
         <h2 class="form-signin-headingm">ログイン</h2>
         <hr>
-        <?= $this->Form->control('login_name', ['label' => 'アカウントID',]) ?>
+        <?= $this->Form->control('loginid', ['label' => 'ログインID',]) ?>
         <?= $this->Form->control('password', ['label' => 'パスワード',]) ?>
         <button type="submit" class="btn btn-info btn-block">ログイン</button>
     </fieldset>

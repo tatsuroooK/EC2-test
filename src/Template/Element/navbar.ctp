@@ -2,7 +2,7 @@
 use App\Statics\User;
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
     <div class="container">
         <?= $this->Html->link('Acappella Knowledge',
             [
@@ -69,7 +69,7 @@ use App\Statics\User;
     </div>
 </nav>
 
-<div class="ht-header-content" style="margin-top:60px; background-color:#1A1B26;">
+<div class="ht-header-content" style="margin-top:50px; background-color:#1A1B26;">
     <div class="row">
         <div class="col-lg-6">
             <h1 class="p-3 pl-5 mt-4 text-white">Share your knowledge</h1>

@@ -54,6 +54,12 @@ class Initial extends AbstractMigration
             ->create();
 
         $this->table('articles')
+            ->addColumn('user_id', 'integer', [
+                'comment' => 'ユーザーID',
+                'default' => null,
+                'limit' => null,
+                'null' => false,
+            ])
             ->addColumn('title', 'text', [
                 'comment' => 'タイトル',
                 'default' => null,

@@ -9,8 +9,9 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
- * @property |\Cake\ORM\Association\HasMany $Comments
- * @property |\Cake\ORM\Association\HasMany $Thumbups
+ * @property \App\Model\Table\ArticlesTable|\Cake\ORM\Association\HasMany $Articles
+ * @property \App\Model\Table\CommentsTable|\Cake\ORM\Association\HasMany $Comments
+ * @property \App\Model\Table\ThumbupsTable|\Cake\ORM\Association\HasMany $Thumbups
  *
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
  * @method \App\Model\Entity\User newEntity($data = null, array $options = [])
@@ -42,6 +43,9 @@ class UsersTable extends Table
 
         $this->addBehavior('Timestamp');
 
+        $this->hasMany('Articles', [
+            'foreignKey' => 'user_id'
+        ]);
         $this->hasMany('Comments', [
             'foreignKey' => 'user_id'
         ]);
@@ -63,9 +67,9 @@ class UsersTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('user_name')
-            ->requirePresence('user_name', 'create')
-            ->notEmpty('user_name');
+            ->scalar('username')
+            ->requirePresence('username', 'create')
+            ->notEmpty('username');
 
         $validator
             ->scalar('password')
@@ -86,5 +90,19 @@ class UsersTable extends Table
             ->allowEmpty('deleted');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->isUnique(['username']));
+
+        return $rules;
     }
 }

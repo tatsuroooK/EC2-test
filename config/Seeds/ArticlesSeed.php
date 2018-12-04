@@ -14,6 +14,7 @@ class ArticlesSeed extends AbstractSeed
     {
         $data = [
             [
+                'user_id' => 1,
                 'title' => '初記事1（seed）',
                 'body' => '初記事です。\nこんにちは。',
                 'draft_flag' => false,
@@ -21,6 +22,7 @@ class ArticlesSeed extends AbstractSeed
                 'modified' => 'now()',
             ],
             [
+                'user_id' => 2,
                 'title' => '初記事2（seed）',
                 'body' => '初記事2です。\nこんにちは。',
                 'draft_flag' => false,

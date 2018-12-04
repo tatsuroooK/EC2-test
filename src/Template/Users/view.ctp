@@ -21,16 +21,16 @@
             <td><?= $this->Number->format($user->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Registered') ?></th>
-            <td><?= h($user->registered) ?></td>
+            <th scope="row"><?= __('Created') ?></th>
+            <td><?= h($user->created) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Modified') ?></th>
             <td><?= h($user->modified) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($user->created) ?></td>
+            <th scope="row"><?= __('Deleted') ?></th>
+            <td><?= h($user->deleted) ?></td>
         </tr>
     </table>
     <div class="row">
@@ -38,7 +38,15 @@
         <?= $this->Text->autoParagraph(h($user->user_name)); ?>
     </div>
     <div class="row">
-        <h4><?= __('Mail') ?></h4>
-        <?= $this->Text->autoParagraph(h($user->mail)); ?>
+        <h4><?= __('Password') ?></h4>
+        <?= $this->Text->autoParagraph(h($user->password)); ?>
+    </div>
+    <div class="row">
+        <h4><?= __('Loginid') ?></h4>
+        <?= $this->Text->autoParagraph(h($user->loginid)); ?>
+    </div>
+    <div class="row">
+        <h4><?= __('Mail Address') ?></h4>
+        <?= $this->Text->autoParagraph(h($user->mail_address)); ?>
     </div>
 </div>

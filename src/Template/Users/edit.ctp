@@ -22,8 +22,10 @@
         <legend><?= __('Edit User') ?></legend>
         <?php
             echo $this->Form->control('user_name');
-            echo $this->Form->control('mail');
-            echo $this->Form->control('registered');
+            echo $this->Form->control('password');
+            echo $this->Form->control('loginid');
+            echo $this->Form->control('mail_address');
+            echo $this->Form->control('deleted');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

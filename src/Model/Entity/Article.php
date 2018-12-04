@@ -4,18 +4,20 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * User Entity
+ * Article Entity
  *
  * @property int $id
- * @property string $user_name
- * @property string $password
- * @property string $loginid
- * @property string $mail_address
+ * @property string $title
+ * @property string $body
+ * @property bool $draft_flag
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  * @property \Cake\I18n\FrozenTime $deleted
+ *
+ * @property \App\Model\Entity\Comment[] $comments
+ * @property \App\Model\Entity\Thumbup[] $thumbups
  */
-class User extends Entity
+class Article extends Entity
 {
 
     /**
@@ -30,14 +32,5 @@ class User extends Entity
     protected $_accessible = [
         '*' => true,
         'id' => false,
-    ];
-
-    /**
-     * Fields that are excluded from JSON versions of the entity.
-     *
-     * @var array
-     */
-    protected $_hidden = [
-        'password'
     ];
 }

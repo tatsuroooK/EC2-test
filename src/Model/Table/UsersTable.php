@@ -9,6 +9,9 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
+ * @property |\Cake\ORM\Association\HasMany $Comments
+ * @property |\Cake\ORM\Association\HasMany $Thumbups
+ *
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
  * @method \App\Model\Entity\User newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\User[] newEntities(array $data, array $options = [])
@@ -38,6 +41,13 @@ class UsersTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->hasMany('Comments', [
+            'foreignKey' => 'user_id'
+        ]);
+        $this->hasMany('Thumbups', [
+            'foreignKey' => 'user_id'
+        ]);
     }
 
     /**
@@ -58,12 +68,22 @@ class UsersTable extends Table
             ->notEmpty('user_name');
 
         $validator
-            ->scalar('mail')
-            ->allowEmpty('mail');
+            ->scalar('password')
+            ->requirePresence('password', 'create')
+            ->notEmpty('password');
 
         $validator
-            ->dateTime('registered')
-            ->allowEmpty('registered');
+            ->scalar('loginid')
+            ->requirePresence('loginid', 'create')
+            ->notEmpty('loginid');
+
+        $validator
+            ->scalar('mail_address')
+            ->allowEmpty('mail_address');
+
+        $validator
+            ->dateTime('deleted')
+            ->allowEmpty('deleted');
 
         return $validator;
     }

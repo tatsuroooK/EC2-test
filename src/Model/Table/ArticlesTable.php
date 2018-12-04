@@ -53,6 +53,11 @@ class ArticlesTable extends Table
         $this->hasMany('Thumbups', [
             'foreignKey' => 'article_id'
         ]);
+        $this->belongsToMany('Tags', [
+            'foreignKey' => 'article_id',
+            'joinTable' => 'articles_tags',
+            'targetForeignKey' => 'tag_id'
+        ]);
     }
 
     /**

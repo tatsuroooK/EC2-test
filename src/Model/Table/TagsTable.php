@@ -38,6 +38,11 @@ class TagsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+        $this->belongsToMany('Articles', [
+            'foreignKey' => 'tag_id',
+            'joinTable' => 'articles_tags',
+            'targetForeignKey' => 'article_id'
+        ]);
     }
 
     /**

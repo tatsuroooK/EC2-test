@@ -74,18 +74,15 @@ class ArticlesTable extends Table
 
         $validator
             ->scalar('title')
-            ->requirePresence('title', 'create')
             ->notEmpty('title');
 
         $validator
             ->scalar('body')
-            ->requirePresence('body', 'create')
             ->notEmpty('body');
 
         $validator
             ->boolean('draft_flag')
-            ->requirePresence('draft_flag', 'create')
-            ->notEmpty('draft_flag');
+            ->allowEmpty('draft_flag');
 
         $validator
             ->dateTime('deleted')

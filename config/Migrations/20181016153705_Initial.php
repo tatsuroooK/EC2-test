@@ -13,19 +13,19 @@ class Initial extends AbstractMigration
                 'comment' => 'ユーザー名',
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addColumn('password', 'text', [
                 'comment' => 'パスワード',
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addColumn('loginid', 'text', [
                 'comment' => 'ログインID',
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addColumn('mail_address', 'text', [
                 'comment' => 'メールアドレス',
@@ -58,25 +58,25 @@ class Initial extends AbstractMigration
                 'comment' => 'ユーザーID',
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addColumn('title', 'text', [
                 'comment' => 'タイトル',
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addColumn('body', 'text', [
                 'comment' => '本文',
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addColumn('draft_flag', 'boolean', [
                 'comment' => '下書きフラグ',
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addColumn('created', 'timestamp', [
                 'comment' => '登録日時',
@@ -103,7 +103,7 @@ class Initial extends AbstractMigration
                 'comment' => 'タグ名',
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addColumn('created', 'timestamp', [
                 'comment' => '登録日時',
@@ -130,19 +130,19 @@ class Initial extends AbstractMigration
                 'comment' => 'ユーザーID',
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addColumn('article_id', 'integer', [
                 'comment' => '記事ID',
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addColumn('content', 'text', [
                 'comment' => 'コメント内容',
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addColumn('created', 'timestamp', [
                 'comment' => '登録日時',
@@ -169,13 +169,13 @@ class Initial extends AbstractMigration
                 'comment' => 'ユーザーID',
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addColumn('article_id', 'integer', [
                 'comment' => '記事ID',
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addColumn('created', 'timestamp', [
                 'comment' => '登録日時',

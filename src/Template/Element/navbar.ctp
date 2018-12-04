@@ -69,11 +69,11 @@ use App\Statics\User;
     </div>
 </nav>
 
-<div class="container ht-header-content" style="margin-top:50px; background-color:#1A1B26;">
+<div class="ht-header-content" style="margin-top:60px; background-color:#1A1B26;">
     <div class="row">
         <div class="col-lg-6">
-            <h1 class="mt-4 text-white">Share your knowledge</h1>
-            <h3 class="mb-5 text-white">for your team</h3>
+            <h1 class="p-3 pl-5 mt-4 text-white">Share your knowledge</h1>
+            <h3 class="p-3 pl-5 mb-5 text-white">for your team</h3>
         </div>
             <div class="col-lg-6"></div>
         </div>

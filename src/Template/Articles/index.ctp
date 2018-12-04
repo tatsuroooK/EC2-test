@@ -5,7 +5,7 @@
  */
 ?>
 
-<div class="container mt-5">
+<div class="container">
     <?php foreach($articles as $article): ?>
         <div class="row m-5">
             <div class="col-lg-8 col-md-10 mx-auto">

@@ -4,17 +4,7 @@
  * @var \App\Model\Entity\Article[]|\Cake\Collection\CollectionInterface $articles
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Article'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Comments'), ['controller' => 'Comments', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Comment'), ['controller' => 'Comments', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Thumbups'), ['controller' => 'Thumbups', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Thumbup'), ['controller' => 'Thumbups', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="articles index large-9 medium-8 columns content">
+<div class="articles index columns content">
     <h3><?= __('Articles') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>

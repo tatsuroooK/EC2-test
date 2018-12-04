@@ -17,6 +17,7 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
+use App\Statics\User;
 
 /**
  * Application Controller
@@ -72,6 +73,18 @@ class AppController extends Controller
         ]);
 
         $this->Auth->allow(['login', 'logout']);
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $user = $this->Auth->user();
+
+        if($user) {
+            $users = TableRegistry::getTableLocator()->get('Users');
+            $loginUser = $users->get($user['id']);
+            User::setLoginUserData($loginUser);
+        }
     }
 
     public function isAuthorized($user)

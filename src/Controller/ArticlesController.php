@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use App\Statics\User;
 
 /**
  * Articles Controller
@@ -50,13 +51,15 @@ class ArticlesController extends AppController
     {
         $article = $this->Articles->newEntity();
         if ($this->request->is('post')) {
-            $article = $this->Articles->patchEntity($article, $this->request->getData());
-            if ($this->Articles->save($article)) {
-                $this->Flash->success(__('The article has been saved.'));
+            $data = $this->request->getData();
+            $data['user_id'] = User::$id;
 
+            $article = $this->Articles->patchEntity($article, $data);
+            if ($this->Articles->save($article)) {
+                $this->Flash->success(__('記事が投稿されました。'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The article could not be saved. Please, try again.'));
+            $this->Flash->error(__('記事の投稿に失敗しました。もう一度試してください。'));
         }
         $this->set(compact('article'));
     }

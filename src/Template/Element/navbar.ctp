@@ -21,46 +21,51 @@ use App\Statics\User;
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <?= $this->Html->link('Home',
+                    <?= $this->Html->link(
+                        '<i class="fas fa-home"></i> Home',
                         [
                             'controller' => 'articles',
                             'action' => 'index'
                         ],
                         [
-                            'class' => 'nav-link'
+                            'class' => 'nav-link ml-2',
+                            'escape' => false
                         ]
                     ) ?>
                 </li>
                 <li class="nav-item">
-                    <?= $this->Html->link('記事を書く',
+                    <?= $this->Html->link('<i class="fas fa-pencil-alt"></i> 記事を書く',
                         [
                             'controller' => 'articles',
                             'action' => 'add'
                         ],
                         [
-                            'class' => 'nav-link'
+                            'class' => 'nav-link ml-2',
+                            'escape' => false
                         ]
                     ) ?>
                 </li>
                 <li class="nav-item">
-                    <?= $this->Html->link('記事一覧',
+                    <?= $this->Html->link('<i class="fas fa-book"></i> 記事一覧',
                         [
                             'controller' => 'articles',
                             'action' => 'myArticles'
                         ],
                         [
-                            'class' => 'nav-link'
+                            'class' => 'nav-link ml-2',
+                            'escape' => false
                         ]
                     ) ?>
                 </li>
                 <li class="nav-item">
-                    <?= $this->Html->link('ログアウト',
+                    <?= $this->Html->link('<i class="fas fa-door-open"></i> ログアウト',
                         [
                             'controller' => 'users',
                             'action' => 'logout'
                         ],
                         [
-                            'class' => 'nav-link'
+                            'class' => 'nav-link ml-2',
+                            'escape' => false
                         ]
                     ) ?>
                 </li>

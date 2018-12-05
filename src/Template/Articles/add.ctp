@@ -5,6 +5,8 @@
  */
 ?>
 <div class="articles form columns content">
+    <h2 class="mt-5">記事を書く</h2>
+    <hr>
     <?= $this->Form->create($article, ['noValidate' => true]) ?>
     <fieldset>
         <form>
@@ -22,9 +24,13 @@
                     <?= $this->Form->control('body', [
                         'label' => false,
                         'type' => 'textarea',
+                        'rows' => 20
                     ]) ?>
                 </div>
-                <button type="submit" class="btn btn-primary">投稿</button>
+                <div style="float:right;">
+                    <button type="button" class="btn btn-outline-info" id="draft">下書きに保存</button>
+                    <button type="button" class="btn btn-info">投稿する</button>
+                </div>
             </div>
         </form>
     </fieldset>

@@ -8,23 +8,34 @@
 <div class="container">
     <?php foreach($articles as $article): ?>
         <div class="row m-5">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <div class="post-preview">
-                    <a href="">
-                        <h2 class="post-title">
-                            <?= $this->Html->link($article->title, [
-                                'controller' => 'Articles',
-                                'action' => 'view',
-                                $article->id
-                            ]) ?>
-                        </h2>
-                        <h3 class="post-subtitle">
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by<a href="#"><?= $this->Html->link($article->user->username, ['controller' => 'Users', 'action' => 'view', $article->user->id]) ?></a>datetime</p>
+            <div class="col-lg-8 col-md-10 mx-aut">
+                <h4>
+                    <?= $this->Html->link($article->title,
+                        [
+                            'controller' => 'Articles',
+                            'action' => 'view',
+                            $article->id
+                        ],
+                        [
+                            'class' => 'text-dark font-weight-bold'
+                        ]
+                    ) ?>
+                </h4>
+                <div class="row mt-5">
+                    <div class="col-md-4">
+                        <?= $this->Html->link($article->user->username, [
+                            'controller' => 'Users',
+                            'action' => 'view',
+                            $article->user->id
+                        ]) ?>
+                        <p class="mt-3"><?= h($article->created->format('Y-m-d h:m')) ?></p>
+                    </div>
+                    <div class="col-md-8">
+                        <?= mb_strimwidth(nl2br(h($article->body)), 0, 200)?>
+                    </div>
                 </div>
-                <hr>
             </div>
         </div>
+        <hr>
     <?php endforeach; ?>
 </div>

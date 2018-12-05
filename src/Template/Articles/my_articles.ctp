@@ -24,11 +24,40 @@ use App\Statics\User;
         <tbody>
             <?php foreach ($articles as $article): ?>
             <tr>
-                <td><?= h($article->title) ?></td>
+                <td>
+                    <?= $this->Html->link("$article->title",
+                        [
+                            'controller' => 'articles',
+                            'action' => 'view',
+                            $article->id
+                        ],
+                        [
+                            'class' => 'text-dark'
+                        ]
+                    ) ?>
+                </td>
                 <td><?= h($article->created->format('Y-m-d h:m:s')) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link('閲覧', ['controller' => 'articles', 'action' => 'view', $article->id], ['class' => 'btn btn-success btn-sm']) ?>
-                    <?= $this->Html->link('編集', ['controller' => 'articles', 'action' => 'edit', $article->id], ['class' => 'btn btn-success btn-sm']) ?>
+                    <?= $this->Html->link('編集',
+                        [
+                            'controller' => 'articles',
+                            'action' => 'edit',
+                            $article->id
+                        ],
+                        [
+                            'class' => 'btn btn-outline-success btn-sm'
+                        ]
+                    ) ?>
+                    <?= $this->Html->link('削除',
+                        [
+                            'controller' => 'articles',
+                            'action' => 'delete',
+                            $article->id
+                        ],
+                        [
+                            'class' => 'btn btn-danger btn-sm'
+                        ]
+                    ) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

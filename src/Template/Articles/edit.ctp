@@ -4,33 +4,29 @@
  * @var \App\Model\Entity\Article $article
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $article->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $article->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Articles'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Comments'), ['controller' => 'Comments', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Comment'), ['controller' => 'Comments', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Thumbups'), ['controller' => 'Thumbups', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Thumbup'), ['controller' => 'Thumbups', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="articles form large-9 medium-8 columns content">
-    <?= $this->Form->create($article) ?>
+<div class="articles form columns content">
+    <?= $this->Form->create($article, ['noValidate' => true]) ?>
     <fieldset>
-        <legend><?= __('Edit Article') ?></legend>
-        <?php
-            echo $this->Form->control('title');
-            echo $this->Form->control('body');
-            echo $this->Form->control('draft_flag');
-            echo $this->Form->control('deleted');
-        ?>
+        <form>
+            <div class="card mt-5 mb-5 p-5">
+                <div class="form-group">
+                    <label for="">タイトル</label>
+                    <?= $this->Form->control('title', [
+                        'label' => false,
+                        'type' => 'text',
+
+                    ]) ?>
+                </div>
+                <div class="form-group">
+                    <label for="">本文</label>
+                    <?= $this->Form->control('body', [
+                        'label' => false,
+                        'type' => 'textarea',
+                    ]) ?>
+                </div>
+                <button type="submit" class="btn btn-primary">投稿</button>
+            </div>
+        </form>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 </div>

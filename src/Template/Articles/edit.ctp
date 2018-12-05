@@ -5,6 +5,8 @@
  */
 ?>
 <div class="articles form columns content">
+    <h2 class="mt-5">記事の編集</h2>
+    <hr>
     <?= $this->Form->create($article, ['noValidate' => true]) ?>
     <fieldset>
         <form>

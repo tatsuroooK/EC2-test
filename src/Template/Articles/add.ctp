@@ -28,10 +28,12 @@
                     ]) ?>
                 </div>
                 <div class="form-group">
-                    <label for="">タグ</label>
+                    <label>Youtubeの動画を掲載する</label>
                     <?= $this->Form->control('body', [
                         'label' => false,
                         'type' => 'text',
+                        'placeholder' => '動画のURLを入力してください',
+                        'required' => false,
                     ]) ?>
                 </div>
                 <div class="mt-3" style="float:right;">

@@ -81,6 +81,10 @@ class ArticlesTable extends Table
             ->notEmpty('body');
 
         $validator
+            ->scalar('youtube_url')
+            ->allowEmpty('youtube_url');
+            
+        $validator
             ->boolean('draft_flag')
             ->allowEmpty('draft_flag');
 

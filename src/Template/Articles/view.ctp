@@ -23,8 +23,9 @@ use App\Statics\User;;
     <div class="p-3">
         <?= nl2br(h($article->body)) ?>
     </div>
-    <div class="video clear-both mt-5">
-        <iframe width="100" height="65" src="https://www.youtube.com/embed/lqelbQTZ_1o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+    <?php if(!empty($article->youtube_url)): ?>
+        <div class="video clear-both mt-5">
+            <iframe width="100" height="65" src="https://www.youtube.com/embed/<?= $article->youtube_url ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    <?php endif; ?>
 </div>
-

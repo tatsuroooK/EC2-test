@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group">
                     <label>Youtubeの動画を掲載する</label>
-                    <?= $this->Form->control('body', [
+                    <?= $this->Form->control('youtube_url', [
                         'label' => false,
                         'type' => 'text',
                         'placeholder' => '動画のURLを入力してください',

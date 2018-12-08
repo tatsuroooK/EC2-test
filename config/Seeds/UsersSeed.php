@@ -1,8 +1,9 @@
 <?php
 use Migrations\AbstractSeed;
 use Cake\Auth\DefaultPasswordHasher;
+
 /**
- * Accounts seed.
+ * Users seed.
  */
 class UsersSeed extends AbstractSeed
 {
@@ -14,18 +15,27 @@ class UsersSeed extends AbstractSeed
     {
         $data = [
             [
-                'login_name' => 'admin',
-                'password' => $this->_setPassword('admin'),
                 'username' => '管理者',
+                'password' => $this->_setPassword('admin'),
+                'loginid' => 'admin',
                 'mail_address' => 'tktktk0805@gmail.com',
-                'role' => '1',
+                'created' => 'now()',
+                'modified' => 'now()',
+            ],
+            [
+                'username' => 'かわの',
+                'password' => $this->_setPassword('kawano'),
+                'loginid' => 'kawano',
+                'mail_address' => 'tktktk0805@gmail.com',
                 'created' => 'now()',
                 'modified' => 'now()',
             ],
         ];
-        $table = $this->table('Users');
+
+        $table = $this->table('users');
         $table->insert($data)->save();
     }
+
     /**
      * ハッシュ化されたパスワードを返す
      * @param $value

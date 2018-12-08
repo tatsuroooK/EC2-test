@@ -16,7 +16,9 @@ class ArticlesControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.articles'
+        'app.articles',
+        'app.comments',
+        'app.thumbups'
     ];
 
     /**

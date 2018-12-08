@@ -2,15 +2,50 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Users Controller
  *
+ * @property \App\Model\Table\UsersTable $Users
  *
  * @method \App\Model\Entity\User[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class UsersController extends AppController
 {
+    /**
+     * 認証不要なアクションを定義
+     */
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->Auth->allow(['login', 'add']);
+    }
+
+    /**
+     * 
+     */
+    public function isAuthorized($user)
+    {
+        return true;
+    }
+
+    public function login()
+    {
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            if ($user) {
+                $this->Auth->setUser($user);
+                return $this->redirect($this->Auth->redirectUrl());
+            }
+            $this->Flash->error(__('ログインIDまたはパスワードが間違っています。'));
+        }
+    }
+
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
+    }
 
     /**
      * Index method

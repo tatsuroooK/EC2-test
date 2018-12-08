@@ -16,6 +16,8 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
+use App\Statics\User;
 
 /**
  * Application Controller
@@ -46,10 +48,50 @@ class AppController extends Controller
         ]);
         $this->loadComponent('Flash');
 
-        /*
-         * Enable the following component for recommended CakePHP security settings.
-         * see https://book.cakephp.org/3.0/en/controllers/components/security.html
-         */
-        //$this->loadComponent('Security');
+        $this->loadComponent('Auth', [
+            'authorize' => ['Controller'],
+            'loginAction' => [
+                'controller' => 'Users',
+                'action' => 'login',
+            ],
+            'loginRedirect' => [
+                'controller' => 'Articles',
+                'action' => 'index'
+            ],
+            'authError' => 'アクセス権限がありません。',
+            'authenticate' => [
+                'Form' => [
+                    'userModel' => 'Users',
+                    'fields' => [
+                        'username' => 'loginid',
+                        'password' => 'password'
+                    ]
+                ]
+            ],
+            'storage' => 'Session',
+            'checkAuthIn' => 'Controller.initialize'
+        ]);
+
+        $this->Auth->allow(['login', 'logout']);
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $user = $this->Auth->user();
+
+        if($user) {
+            $users = TableRegistry::getTableLocator()->get('Users');
+            $loginUser = $users->get($user['id']);
+            User::setLoginUserData($loginUser);
+        }
+    }
+
+    public function isAuthorized($user)
+    {
+        if (!$this->request->getParam('prefix')) {
+            return true;
+        }
+        return false;
     }
 }

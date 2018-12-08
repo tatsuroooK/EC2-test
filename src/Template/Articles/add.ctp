@@ -27,9 +27,18 @@
                         'rows' => 20
                     ]) ?>
                 </div>
-                <div style="float:right;">
-                    <button type="button" class="btn btn-outline-info" id="draft">下書きに保存</button>
-                    <button type="button" class="btn btn-info">投稿する</button>
+                <div class="form-group">
+                    <label for="">タグ</label>
+                    <?= $this->Form->control('body', [
+                        'label' => false,
+                        'type' => 'text',
+                    ]) ?>
+                </div>
+                <div class="mt-3" style="float:right;">
+                    <?= $this->Form->button('下書きに保存', ['class' => 'btn btn-outline-info','id' => 'draft', 'type' => 'submit']) ?>
+                </div>
+                <div class="mt-3" style="float:right;">
+                    <?= $this->Form->button('投稿する', ['class' => 'btn btn-info', 'id' => 'submit', 'type' => 'submit']) ?>
                 </div>
             </div>
         </form>

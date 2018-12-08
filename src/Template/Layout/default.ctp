@@ -13,6 +13,8 @@
         <?= $this->fetch('content') ?>
     </div>
     <footer>
+        <div class="mb-5 footer-margin">
+        </div>
     </footer>
 </body>
 </html>

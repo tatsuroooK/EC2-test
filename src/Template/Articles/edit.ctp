@@ -26,6 +26,15 @@
                         'type' => 'textarea',
                     ]) ?>
                 </div>
+                <div class="form-group">
+                    <label>Youtubeの動画を掲載する</label>
+                    <?= $this->Form->control('youtube_url', [
+                        'label' => false,
+                        'type' => 'text',
+                        'placeholder' => '動画のURLを入力してください',
+                        'required' => false,
+                    ]) ?>
+                </div>
                 <button type="submit" class="btn btn-primary">投稿</button>
             </div>
         </form>

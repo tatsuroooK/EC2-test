@@ -37,10 +37,22 @@
                     ]) ?>
                 </div>
                 <div class="mt-3" style="float:right;">
-                    <?= $this->Form->button('下書きに保存', ['class' => 'btn btn-outline-info','id' => 'draft', 'type' => 'submit']) ?>
+                    <?= $this->Form->button('下書きに保存',
+                        [
+                            'class' => 'btn btn-outline-info',
+                            'id' => 'draft',
+                            'type' => 'submit'
+                        ]
+                    ) ?>
                 </div>
                 <div class="mt-3" style="float:right;">
-                    <?= $this->Form->button('投稿する', ['class' => 'btn btn-info', 'id' => 'submit', 'type' => 'submit']) ?>
+                    <?= $this->Form->button('投稿する',
+                        [
+                            'class' => 'btn btn-info',
+                            'id' => 'submit',
+                            'type' => 'submit'
+                        ]
+                    ) ?>
                 </div>
             </div>
         </form>

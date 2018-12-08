@@ -27,15 +27,20 @@
                         'rows' => 20
                     ]) ?>
                 </div>
+                <hr>
                 <div class="form-group">
                     <label>Youtubeの動画を掲載する</label>
                     <?= $this->Form->control('youtube_url', [
                         'label' => false,
                         'type' => 'text',
-                        'placeholder' => '動画のURLを入力してください',
+                        'placeholder' => 'watch?v= 以降の文字列を入力',
                         'required' => false,
                     ]) ?>
+                    <span class="badge badge-danger">注意</span>
+                    <small class="">掲載したい動画のURLの&nbsp;<strong>watch?v=</strong>&nbsp;以降の文字を入力してください（以下例の赤線部分）</small>
+                    <?= $this->Html->image('youtube-url-sample', ['alt' => 'img'], ['class' => 'p-3']); ?>
                 </div>
+
                 <div class="mt-3" style="float:right;">
                     <?= $this->Form->button('下書きに保存',
                         [

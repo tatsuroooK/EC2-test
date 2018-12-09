@@ -13,6 +13,18 @@ use App\Statics\User;
  */
 class ArticlesController extends AppController
 {
+    public $paginate = [
+        'limit' => 10,
+        'order' => [
+            'Articles.created' => 'desc'
+        ]
+    ];
+
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('Paginator');
+    }
 
     /**
      * Index method
@@ -21,9 +33,10 @@ class ArticlesController extends AppController
      */
     public function index()
     {
-        $articles = $this->Articles->find('all')
-            ->contain(['Users'])
-            ->all();
+        $query = $this->Articles->find()
+            ->contain(['Users']);
+        $articles = $this->paginate($query);
+        
         $this->set(compact('articles'));
     }
 

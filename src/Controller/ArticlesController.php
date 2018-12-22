@@ -72,10 +72,13 @@ class ArticlesController extends AppController
      */
     public function add()
     {
+        $this->loadComponent('DataConversion');
+
         $article = $this->Articles->newEntity();
         if ($this->request->is('post')) {
             $data = $this->request->getData();
             $data['user_id'] = User::$id;
+            $data['youtube_url'] = $this->DataConversion->convertYoutubeUrlToCode($data['youtube_url']);
 
             $article = $this->Articles->patchEntity($article, $data);
             if ($this->Articles->save($article)) {

@@ -76,9 +76,8 @@ class ArticlesController extends AppController
 
         $article = $this->Articles->newEntity();
         if ($this->request->is('post')) {
-            $data = $this->request->getData();
-            $data['user_id'] = User::$id;
-            $data['youtube_url'] = $this->DataConversion->convertYoutubeUrlToCode($data['youtube_url']);
+            $data = $this->Articles->generateArticleData($this->request->getData());
+            debug($data);exit;
 
             $article = $this->Articles->patchEntity($article, $data);
             if ($this->Articles->save($article)) {

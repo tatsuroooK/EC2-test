@@ -1,13 +1,23 @@
 <?php
-namespace Cake\Controller\Component;
+namespace App\Model\Behavior;
 
-use Cake\Controller\Component;
+use Cake\ORM\Behavior;
 
-class DataConversionComponent extends Component
+/**
+ * 
+ */
+class DataConversionBehavior extends Behavior
 {
+
     /**
-     * youtube urlのコードを生成
-     * (watch?v= 以降の文字列を返す)
+     * Default configuration.
+     *
+     * @var array
+     */
+    protected $_defaultConfig = [];
+
+    /**
+     * 
      */
     public function convertYoutubeUrlToCode($youtubeUrl)
     {

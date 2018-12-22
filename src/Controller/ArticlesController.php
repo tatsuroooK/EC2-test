@@ -77,7 +77,6 @@ class ArticlesController extends AppController
         $article = $this->Articles->newEntity();
         if ($this->request->is('post')) {
             $data = $this->Articles->generateArticleData($this->request->getData());
-            debug($data);exit;
 
             $article = $this->Articles->patchEntity($article, $data);
             if ($this->Articles->save($article)) {

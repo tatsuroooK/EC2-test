@@ -33,12 +33,9 @@
                     <?= $this->Form->control('youtube_url', [
                         'label' => false,
                         'type' => 'text',
-                        'placeholder' => 'watch?v= 以降の文字列を入力',
+                        'placeholder' => '動画のURLを入力してください',
                         'required' => false,
                     ]) ?>
-                    <span class="badge badge-danger">注意</span>
-                    <small class="">掲載したい動画のURLの&nbsp;<strong>watch?v=</strong>&nbsp;以降の文字を入力してください（以下例の赤線部分）</small>
-                    <?= $this->Html->image('youtube-url-sample', ['alt' => 'img'], ['class' => 'p-3']); ?>
                 </div>
 
                 <div class="mt-3" style="float:right;">

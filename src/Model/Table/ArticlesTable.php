@@ -5,6 +5,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use App\Statics\User;
 
 /**
  * Articles Model
@@ -36,6 +37,8 @@ class ArticlesTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
+
+        $this->addBehavior('DataConversion');
 
         $this->setTable('articles');
         $this->setDisplayField('title');
@@ -107,5 +110,13 @@ class ArticlesTable extends Table
         $rules->add($rules->existsIn(['user_id'], 'Users'));
 
         return $rules;
+    }
+
+    public function generateArticleData($data)
+    {
+        $data['user_id'] = User::$id;
+        $data['youtube_url'] = $this->convertYoutubeUrlToCode($data['youtube_url']);
+
+        return $data;
     }
 }

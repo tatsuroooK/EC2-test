@@ -72,8 +72,6 @@ class ArticlesController extends AppController
      */
     public function add()
     {
-        $this->loadComponent('DataConversion');
-
         $article = $this->Articles->newEntity();
         if ($this->request->is('post')) {
             $data = $this->Articles->generateArticleData($this->request->getData());

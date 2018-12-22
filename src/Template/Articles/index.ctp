@@ -44,3 +44,12 @@
         <hr>
     <?php endforeach; ?>
 </div>
+<div class="paginator">
+    <ul class="pagination">
+        <?= $this->Paginator->first('<< ' . ('最初')) ?>
+        <?= $this->Paginator->prev('< ' . ('前')) ?>
+        <?= $this->Paginator->numbers() ?>
+        <?= $this->Paginator->next(('次') . ' >') ?>
+        <?= $this->Paginator->last(('最後') . ' >>') ?>
+    </ul>
+</div>

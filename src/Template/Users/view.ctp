@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-4">
             <div class="card-body box-profile">
-                <h3 class="profile-username text-center">name</h3>
+                <h3 class="profile-username text-center"><?= h($user->username) ?></h3>
 
                 <p class="text-muted text-center">Software Engineer</p>
 

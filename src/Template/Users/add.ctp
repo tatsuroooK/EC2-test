@@ -19,6 +19,7 @@
             echo $this->Form->control('password');
             echo $this->Form->control('loginid');
             echo $this->Form->control('mail_address');
+            echo $this->Form->control('self_introduction');
             echo $this->Form->control('deleted');
         ?>
     </fieldset>

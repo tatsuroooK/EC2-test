@@ -86,6 +86,10 @@ class UsersTable extends Table
             ->allowEmpty('mail_address');
 
         $validator
+            ->scalar('self_introduction')
+            ->allowEmpty('self_introduction');
+
+        $validator
             ->dateTime('deleted')
             ->allowEmpty('deleted');
 

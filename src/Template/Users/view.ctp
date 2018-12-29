@@ -11,7 +11,7 @@
             <div class="card-body box-profile">
                 <h3 class="profile-username text-center"><?= h($user->username) ?></h3>
 
-                <p class="text-muted text-center">Software Engineer</p>
+                <p class="text-muted text-center"><?= h($user->self_introduction) ?></p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                     <li class="list-group-item">

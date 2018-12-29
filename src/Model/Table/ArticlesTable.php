@@ -119,4 +119,17 @@ class ArticlesTable extends Table
 
         return $data;
     }
+
+    /**
+     * プロフィール画面に表示する記事を取得
+     */
+    public function fetchOwnArticles($articleId)
+    {
+        $ownArticles = $this->find()
+            ->where(['id' => $articleId])
+            ->where(['draft_flag' => false])
+            ->all();
+
+        return $ownArticles;
+    }
 }

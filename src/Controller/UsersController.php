@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 
 /**
  * Users Controller
@@ -68,11 +69,14 @@ class UsersController extends AppController
      */
     public function view($id = null)
     {
+        $articles = TableRegistry::getTableLocator()->get('Articles');
+        $ownArticles = $articles->fetchOwnArticles($id);
+
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
 
-        $this->set('user', $user);
+        $this->set(compact('user', 'ownArticles'));
     }
 
     /**

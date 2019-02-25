@@ -41,3 +41,5 @@ nbproject/*
 
 # reference files
 reference/*
+
+config/Migrations/schema-dump-default.lock

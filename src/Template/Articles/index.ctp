@@ -7,8 +7,8 @@
 
 <div class="container">
     <?php foreach($articles as $article): ?>
-        <div class="row m-5">
-            <div class="col-lg-8 col-md-10 mx-aut">
+        <div class="row mt-4">
+            <div class="col-sm-12">
                 <h4>
                     <?= $this->Html->link($article->title,
                         [

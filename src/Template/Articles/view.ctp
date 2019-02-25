@@ -5,6 +5,7 @@
  */
 ?>
 <?= $this->Html->css('Articles/common_articles') ?>
+<?= $this->Html->script('thumbup') ?>
 <?php use App\Statics\User; ?>
 
 <div class="container">
@@ -31,6 +32,9 @@
     </div>
     <hr>
     <div class="mt-3">
-        <span class="float-right">good</span>
+        <span class="float-right"><i class="far fa-lg fa-thumbs-up" id="thumbup"></i></span>
     </div>
+    <?= $this->Form->hidden('articleid', ['value' => $article->id, 'id' => 'article-id']) ?>
+    <?= $this->Form->hidden('thumup_url', ['value' => $thumbupUrl, 'id' => 'thumbup-url']) ?>
+    <?= $this->Form->hidden('userid', ['value' => User::$id, 'user-id']) ?>
 </div>

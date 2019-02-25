@@ -13,6 +13,18 @@ use App\Statics\User;
  */
 class ArticlesController extends AppController
 {
+    public $paginate = [
+        'limit' => 10,
+        'order' => [
+            'Articles.created' => 'desc'
+        ]
+    ];
+
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('Paginator');
+    }
 
     /**
      * Index method
@@ -34,6 +46,9 @@ class ArticlesController extends AppController
         // $thumbupImage['on'] = ThumbUp::THUMB_UP_ON_ICON;
         // $thumbupImage['off'] = ThumbUp::THUMB_UP_OFF_ICON;
         // $this->Pack->set(compact('thumbupUrl', 'thumbupImage'));
+        $query = $this->Articles->find()
+            ->contain(['Users']);
+        $articles = $this->paginate($query);
         
         $this->set(compact('articles'));
     }
@@ -111,8 +126,7 @@ class ArticlesController extends AppController
     {
         $article = $this->Articles->newEntity();
         if ($this->request->is('post')) {
-            $data = $this->request->getData();
-            $data['user_id'] = User::$id;
+            $data = $this->Articles->generateArticleData($this->request->getData());
 
             $article = $this->Articles->patchEntity($article, $data);
             if ($this->Articles->save($article)) {

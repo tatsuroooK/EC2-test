@@ -7,8 +7,8 @@
 
 <div class="container">
     <?php foreach($articles as $article): ?>
-        <div class="row m-5">
-            <div class="col-lg-8 col-md-10 mx-aut">
+        <div class="row mt-4">
+            <div class="col-sm-12">
                 <h4>
                     <?= $this->Html->link($article->title,
                         [
@@ -43,4 +43,13 @@
         </div>
         <hr>
     <?php endforeach; ?>
+</div>
+<div class="paginator">
+    <ul class="pagination">
+        <?= $this->Paginator->first('<< ' . ('最初')) ?>
+        <?= $this->Paginator->prev('< ' . ('前')) ?>
+        <?= $this->Paginator->numbers() ?>
+        <?= $this->Paginator->next(('次') . ' >') ?>
+        <?= $this->Paginator->last(('最後') . ' >>') ?>
+    </ul>
 </div>

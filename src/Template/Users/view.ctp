@@ -5,9 +5,9 @@
  */
 ?>
 
-<div class="users view columns content">
+<div class="container">
     <div class="row">
-        <div class="col-4">
+        <div class="col-xs-4">
             <div class="card-body box-profile">
                 <h3 class="profile-username text-center"><?= h($user->username) ?></h3>
 
@@ -28,10 +28,10 @@
                 <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
             </div>
         </div>
-        <div class="col-8">
+        <div class="col-xs-8">
             <?php foreach($ownArticles as $article): ?>
             <div class="row m-5">
-                <div class="col-lg-8 col-md-10 mx-aut">
+                <div class="col-xs-8">
                     <h4>
                         <?= $this->Html->link($article->title,
                             [
@@ -45,7 +45,7 @@
                         ) ?>
                     </h4>
                     <div class="row mt-5">
-                        <div class="col-md-12">
+                        <div class="col-xs-12">
                             <div>
                                 <?= h($article->body) ?>
                             </div>

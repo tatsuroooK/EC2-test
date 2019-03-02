@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use App\Statics\User;
+use Cake\Routing\Router;
 
 /**
  * Articles Controller
@@ -62,7 +63,9 @@ class ArticlesController extends AppController
             'contain' => ['Users', 'Comments', 'Thumbups']
         ]);
 
-        $this->set('article', $article);
+        $thumbupUrl = Router::url(['controller' => 'Thumbups', 'action' => 'ajax']);
+
+        $this->set(compact('article', 'thumbupUrl'));
     }
 
     /**
